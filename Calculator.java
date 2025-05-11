@@ -1,12 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
 public class Calculator extends JFrame implements ActionListener {
     private final JTextField txt;
     private double a = 0, b = 0, res = 0;
     private char op;
-
     public Calculator() {
         setTitle("Calculator");
         setSize(350, 500);
@@ -14,7 +12,6 @@ public class Calculator extends JFrame implements ActionListener {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout(5, 5));
         getContentPane().setBackground(Color.black);
-
         // Display field
         txt = new JTextField();
         txt.setEditable(false);
@@ -22,7 +19,6 @@ public class Calculator extends JFrame implements ActionListener {
         txt.setHorizontalAlignment(SwingConstants.RIGHT);
         txt.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         add(txt, BorderLayout.NORTH);
-
         // Buttons panel
         JPanel pnl = new JPanel(new GridLayout(4, 4, 4, 4));
         pnl.setBackground(Color.WHITE);
@@ -32,13 +28,11 @@ public class Calculator extends JFrame implements ActionListener {
             "1", "2", "3", "-",
             "0", "C", "=", "+"
         };
-
         for (String k : keys) {
             JButton btn = new JButton(k);
             btn.setFont(new Font("Arial", Font.BOLD, 20));
             btn.setFocusPainted(false);
             btn.setForeground(Color.WHITE);
-
             if (k.matches("\\d")) {
                 btn.setBackground(Color.cyan);
             } else if (k.equals("C")) {
@@ -48,18 +42,14 @@ public class Calculator extends JFrame implements ActionListener {
             } else {
                 btn.setBackground(Color.MAGENTA);
             }
-
             btn.addActionListener(this);
             pnl.add(btn);
         }
-
         add(pnl, BorderLayout.CENTER);
         setVisible(true);
     }
-
     public void actionPerformed(ActionEvent e) {
         String cmd = e.getActionCommand();
-
         if (cmd.matches("\\d")) {
             txt.setText(txt.getText() + cmd);
         } else if (cmd.equals("C")) {
@@ -100,7 +90,6 @@ public class Calculator extends JFrame implements ActionListener {
             }
         }
     }
-
     public static void main(String[] args) {
         SwingUtilities.invokeLater(Calculator::new);
     }
