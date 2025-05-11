@@ -1,24 +1,31 @@
-1.Project Description:Calculator
+1.Project Description:Currency Converter
 
-A simple calculator is a basic application that performs fundamental arithmetic operations such as
-addition, subtraction, multiplication, and division. It typically features a user-friendly interface where users
-can input numbers and select operations, displaying the results in real-time.
-This is a simple calculator application built using Java Swing in Eclipse IDE. It performs basic arithmetic operations like addition, subtraction, multiplication, and division with a clean and colorful GUI.
+A currency converter is an application that allows users to convert amounts between different currencies
+using real-time exchange rates. It typically features a user-friendly interface where users can select
+currencies and input amounts for conversion.
+This is a simple Java Swing application that allows users to convert currency amounts from one currency to another using real-time exchange rates from the ExchangeRate-API.
 Project Structure:
 Project/
 └── src/
     └── Project/
-        └── Calculator.java
+        └── CurrencyConverter.java
 Features:
--Simple and clean GUI using Java Swing.
--Handles basic operations: +, -, *, /.
--Error handling for:Division by zero.
--Invalid inputs.
--Clear button (C) to reset the input.
--Displays result in real-time using a text field.
--GUI designed with JFrame, JTextField, JPanel, and JButtons.
--Layout managed using BorderLayout and GridLayout.
--Input is restricted to digits and operators through button clicks.
+-Convert any currency amount between supported international currencies.
+-Uses real-time exchange rates via ExchangeRate-API.
+-Simple and intuitive GUI built with Java Swing.
+-Includes a scrollable table of popular currency codes and names for reference.
+-ExchangeRate-API for live currency rates
+-org.json for JSON parsing
+-Get a free API key from ExchangeRate-API.
+ExchangeAPI:
+link-https://www.exchangerate-api.com/
+JSON-FILE:
+link-https://mvnrepository.com/artifact/org.json/json
+-add the json .jar file to the project.
+-You need an internet connection to fetch live rates.
+-Make sure the currency codes are valid (e.g., USD, EUR, INR, etc.).
+-The API allows a limited number of requests for free users.
+
 
 
 2.Project Description:Password Generator
