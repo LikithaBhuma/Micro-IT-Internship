@@ -3,55 +3,51 @@ import java.awt.event.*;
 import java.io.*;
 import java.net.*;
 import org.json.JSONObject;
-
 public class CurrencyConverter extends JFrame implements ActionListener {
-    JTextField sourceCurrencyField, targetCurrencyField, amountField, resultField;
+    JTextField sourceCurrency, targetCurrency, amount, result;
     JButton convertButton;
-
     public CurrencyConverter() {
         setTitle("Currency Converter");
         setLayout(null);
         setSize(600, 550);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
         JLabel titleLabel = new JLabel("Currency Converter");
         titleLabel.setBounds(200, 10, 200, 30);
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
         add(titleLabel);
-
         JLabel amountLabel = new JLabel("Amount:");
         amountLabel.setBounds(150, 60, 120, 30);
         add(amountLabel);
 
-        amountField = new JTextField();
-        amountField.setBounds(280, 60, 150, 30);
-        add(amountField);
+        amount = new JTextField();
+        amount.setBounds(280, 60, 150, 30);
+        add(amount);
 
         JLabel sourceLabel = new JLabel("From (e.g., USD):");
         sourceLabel.setBounds(150, 110, 120, 30);
         add(sourceLabel);
 
-        sourceCurrencyField = new JTextField();
-        sourceCurrencyField.setBounds(280, 110, 150, 30);
-        add(sourceCurrencyField);
+        sourceCurrency = new JTextField();
+        sourceCurrency.setBounds(280, 110, 150, 30);
+        add(sourceCurrency);
 
         JLabel targetLabel = new JLabel("To (e.g., INR):");
         targetLabel.setBounds(150, 160, 120, 30);
         add(targetLabel);
 
-        targetCurrencyField = new JTextField();
-        targetCurrencyField.setBounds(280, 160, 150, 30);
-        add(targetCurrencyField);
+        targetCurrency = new JTextField();
+        targetCurrency.setBounds(280, 160, 150, 30);
+        add(targetCurrency);
 
         JLabel resultLabel = new JLabel("Result:");
         resultLabel.setBounds(150, 210, 120, 30);
         add(resultLabel);
 
-        resultField = new JTextField();
-        resultField.setBounds(280, 210, 150, 30);
-        resultField.setEditable(false);
-        add(resultField);
+        result = new JTextField();
+        result.setBounds(280, 210, 150, 30);
+        result.setEditable(false);
+        add(result);
 
         convertButton = new JButton("Convert");
         convertButton.setBounds(230, 260, 120, 30);
@@ -83,16 +79,16 @@ public class CurrencyConverter extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         try {
-            double amount = Double.parseDouble(amountField.getText().trim());
-            String from = sourceCurrencyField.getText().trim().toUpperCase();
-            String to = targetCurrencyField.getText().trim().toUpperCase();
+            double amount = Double.parseDouble(amount.getText().trim());
+            String from = sourceCurrency.getText().trim().toUpperCase();
+            String to = targetCurrency.getText().trim().toUpperCase();
 
             if (from.isEmpty() || to.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Enter both currency codes.");
                 return;
             }
 
-            String apiKey = "Your API_KEY";
+            String apiKey = "add your own API KEY";
             String urlStr = "https://v6.exchangerate-api.com/v6/" + apiKey + "/latest/" + from;
 
             URL url = new URL(urlStr);
@@ -117,7 +113,7 @@ public class CurrencyConverter extends JFrame implements ActionListener {
             double rate = json.getJSONObject("conversion_rates").getDouble(to);
             double convertedAmount = amount * rate;
 
-            resultField.setText(String.format("%.2f %s", convertedAmount, to));
+            result.setText(String.format("%.2f %s", convertedAmount, to));
         } catch (Exception ex) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
