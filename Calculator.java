@@ -4,7 +4,7 @@ import java.awt.event.*;
 public class Calculator extends JFrame implements ActionListener {
     private final JTextField txt;
     private double a = 0, b = 0, res = 0;
-    private char op;
+    private char op; 
     public Calculator() {
         setTitle("Calculator");
         setSize(350, 500);
