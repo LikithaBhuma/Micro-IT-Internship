@@ -65,4 +65,5 @@ GridLayout and BorderLayout – For organizing layout
 -Random password generation uses java.util.Random
 ![image](https://github.com/user-attachments/assets/0f1d306c-213f-4124-920e-fd444a66198c)
 ![image](https://github.com/user-attachments/assets/0e05fad3-5f35-42de-b7e9-a7aea88659bc)
+![image](https://github.com/user-attachments/assets/7672bbab-f3ab-4cda-91cf-cdb9abb4c5bf)
 
